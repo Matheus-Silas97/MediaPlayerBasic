@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.windofchange);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.song);
         starSeekVolume();
     }
 
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         if (mediaPlayer.isPlaying()) {
         }
         mediaPlayer.stop();
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.windofchange);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.song);
     }
 
     @Override
@@ -89,10 +89,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-    if (mediaPlayer != null && mediaPlayer.isPlaying()){
-        mediaPlayer.stop();
-        mediaPlayer.release();
-        mediaPlayer = null;
-    }
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
